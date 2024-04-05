@@ -1,0 +1,38 @@
+GET /odata/v4/condition-types/$metadata
+Host: localhost:4004
+
+###
+
+GET /odata/v4/condition-types/Products
+    ?$filter=contains(Description,'fat') and contains(Product,'F')&$count=true
+Host: localhost:4004
+
+###
+
+GET /odata/v4/condition-types/Products
+    ?$filter=contains(Product,'2')&$count=true
+Host: localhost:4004
+
+###
+
+GET /odata/v4/condition-types/Products
+    ?$filter=startswith(Product,'F2') and contains(Description,'yo')
+    &$top=2
+    &$skip=2
+    &$count=true
+Host: localhost:4004
+
+###
+
+GET /odata/v4/condition-types/Products?$count=true
+Host: localhost:4004
+
+###
+
+GET /odata/v4/condition-types/ProductDescriptions
+Host: localhost:4004
+
+###
+
+GET /odata/v4/condition-types/ConditionTypes(ID=1c37a037-91b0-498f-a13b-d6d54768fdf0,IsActiveEntity=true)/product/to_Description?$select=Language,Product,ProductDescription&$orderby=Product%20asc,Language%20asc&$filter=Language%20eq%20'DE'&$top=100
+Host: localhost:4004
